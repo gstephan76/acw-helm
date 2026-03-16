@@ -7,3 +7,6 @@
 - op: replace
   path: /spec/sourceNamespace
   value: openshift-marketplace
+- op: add
+  path: /spec/startingCSV
+  value: grafana-operator.v5.21.2
