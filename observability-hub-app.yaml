@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: observability-hub # or the name you see in the ArgoCD UI
+  namespace: openshift-gitops
+spec:
+  # ... other fields like source and destination ...
+  ignoreDifferences:
+    - group: operators.coreos.com
+      kind: Subscription
+      name: grafana-operator
+      namespace: openshift-operators
+      jsonPointers:
+        - /status/installPlanRef
+        - /status/currentCSV
