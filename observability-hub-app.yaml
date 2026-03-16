@@ -1,10 +1,21 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: observability-hub # or the name you see in the ArgoCD UI
+  name: observability-hub
   namespace: openshift-gitops
 spec:
-  # ... other fields like source and destination ...
+  project: default
+  source:
+    repoURL: https://github.com/gstephan76/acw-helm.git
+    targetRevision: main
+    path: platform/observability-hub/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: openshift-operators
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
   ignoreDifferences:
     - group: operators.coreos.com
       kind: Subscription
