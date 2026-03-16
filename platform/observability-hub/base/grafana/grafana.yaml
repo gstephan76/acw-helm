@@ -7,6 +7,13 @@ metadata:
     dashboards: grafana
   name: grafana
 spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: argocd
   config:
     auth.anonymous:
       enabled: "True"
