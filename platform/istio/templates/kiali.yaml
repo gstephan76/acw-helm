@@ -29,6 +29,7 @@ spec:
           is_core: true
           is_proxy: false
         enabled: true
+        namespace: istio-system
     prometheus:
       auth:
         type: bearer
