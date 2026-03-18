@@ -45,6 +45,5 @@ spec:
       query_timeout: 60
       use_grpc: true
   installation_tag: "Kiali [istio-system]"
-  istio_namespace: istio-system
   server:
     write_timeout: 60
